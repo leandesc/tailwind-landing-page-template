@@ -56,21 +56,9 @@ export default function HeroHome() {
       <PageIllustration />
       </div>
 
-      {/* Floating Particles */}
+      {/* Background Gradient */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-white/90 to-white/80"></div>
-        {Array.from({ length: 20 }).map((_, i) => (
-          <div
-            key={i}
-            className="absolute h-2 w-2 rounded-full bg-blue-500/10"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animation: `float ${5 + Math.random() * 5}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 5}s`,
-            }}
-          ></div>
-        ))}
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-white to-white/80 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900/80"></div>
       </div>
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
@@ -86,7 +74,7 @@ export default function HeroHome() {
             </div>
             
             <h1
-              className="mb-6 text-5xl font-bold md:text-6xl"
+              className="mb-6 text-5xl font-bold md:text-6xl dark:text-white"
               data-aos="zoom-y-out"
               data-aos-delay={150}
             >
@@ -95,7 +83,7 @@ export default function HeroHome() {
             </h1>
             <div className="mx-auto max-w-3xl">
               <p
-                className="mb-8 text-lg text-gray-700"
+                className="mb-8 text-lg text-gray-700 dark:text-gray-300"
                 data-aos="zoom-y-out"
                 data-aos-delay={300}
               >
@@ -143,8 +131,8 @@ export default function HeroHome() {
                   <button
                     className={`flex items-center gap-2 rounded-lg px-4 py-2 text-sm transition-all duration-300 ${
                       activeFeature === 'voice'
-                        ? 'text-blue-600 bg-blue-50'
-                        : 'text-gray-600 hover:bg-gray-50'
+                        ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/50 dark:text-blue-400'
+                        : 'text-gray-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-800'
                     }`}
                     onClick={() => handleFeatureClick(activeFeature === 'voice' ? null : 'voice')}
                   >
@@ -156,8 +144,8 @@ export default function HeroHome() {
                   <button
                     className={`flex items-center gap-2 rounded-lg px-4 py-2 text-sm transition-all duration-300 ${
                       activeFeature === 'insights'
-                        ? 'text-blue-600 bg-blue-50'
-                        : 'text-gray-600 hover:bg-gray-50'
+                        ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/50 dark:text-blue-400'
+                        : 'text-gray-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-800'
                     }`}
                     onClick={() => handleFeatureClick(activeFeature === 'insights' ? null : 'insights')}
                   >
@@ -169,8 +157,8 @@ export default function HeroHome() {
                   <button
                     className={`flex items-center gap-2 rounded-lg px-4 py-2 text-sm transition-all duration-300 ${
                       activeFeature === 'recommendations'
-                        ? 'text-blue-600 bg-blue-50'
-                        : 'text-gray-600 hover:bg-gray-50'
+                        ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/50 dark:text-blue-400'
+                        : 'text-gray-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-gray-800'
                     }`}
                     onClick={() => handleFeatureClick(activeFeature === 'recommendations' ? null : 'recommendations')}
                   >
@@ -197,7 +185,7 @@ export default function HeroHome() {
                     </div>
 
                     {/* Demo Container */}
-                    <div className="relative overflow-hidden rounded-2xl bg-white p-6 shadow-xl transition-all duration-300">
+                    <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 p-6 shadow-xl transition-all duration-300">
                       {/* Conversation Content */}
                       <div className="relative z-20 space-y-4">
                         {/* Conversation Section */}
@@ -205,23 +193,23 @@ export default function HeroHome() {
                           ref={conversationRef}
                           className={`transition-all duration-500 ${
                             activeFeature === 'voice' 
-                              ? 'relative z-10 rounded-xl ring-4 ring-blue-500/20 ring-offset-4'
+                              ? 'relative z-10 rounded-xl ring-4 ring-blue-500/20 ring-offset-4 dark:ring-offset-gray-800'
                               : ''
                           }`}
                         >
                           {activeFeature === 'voice' && (
-                            <div className="absolute inset-0 -z-10 animate-pulse bg-blue-50/30 rounded-xl"></div>
+                            <div className="absolute inset-0 -z-10 animate-pulse bg-blue-50/30 dark:bg-blue-900/30 rounded-xl"></div>
                           )}
                           <div className="flex items-start gap-4">
-                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100">
-                              <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900">
+                              <svg className="h-6 w-6 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
                               </svg>
                             </div>
                             <div className="flex-1">
-                              <div className="mb-1 text-sm font-medium text-gray-500">Endly AI</div>
-                              <div className="rounded-lg bg-blue-50 p-3">
-                                <p className="text-sm text-gray-700">Hi Sarah! How was your experience with the new project management tool this week?</p>
+                              <div className="mb-1 text-sm font-medium text-gray-500 dark:text-gray-400">Endly AI</div>
+                              <div className="rounded-lg bg-blue-50 dark:bg-blue-900/50 p-3">
+                                <p className="text-sm text-gray-700 dark:text-gray-300">Hi Sarah! How was your experience with the new project management tool this week?</p>
                               </div>
                             </div>
                           </div>
@@ -237,23 +225,23 @@ export default function HeroHome() {
                               />
                             </div>
                             <div className="flex-1">
-                              <div className="mb-1 text-sm font-medium text-gray-500">Sarah</div>
-                              <div className="rounded-lg bg-gray-100 p-3">
-                                <p className="text-sm text-gray-700">The new tool has improved our team coordination, but the learning curve was a bit steep...</p>
+                              <div className="mb-1 text-sm font-medium text-gray-500 dark:text-gray-400">Sarah</div>
+                              <div className="rounded-lg bg-gray-100 dark:bg-gray-700 p-3">
+                                <p className="text-sm text-gray-700 dark:text-gray-300">The new tool has improved our team coordination, but the learning curve was a bit steep...</p>
                               </div>
                             </div>
                           </div>
 
                           <div className="flex items-start gap-4">
-                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100">
-                              <svg className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900">
+                              <svg className="h-6 w-6 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
                               </svg>
                             </div>
                             <div className="flex-1">
-                              <div className="mb-1 text-sm font-medium text-gray-500">Endly AI</div>
-                              <div className="rounded-lg bg-blue-50 p-3">
-                                <p className="text-sm text-gray-700">I understand. Would additional training sessions help your team adapt more quickly?</p>
+                              <div className="mb-1 text-sm font-medium text-gray-500 dark:text-gray-400">Endly AI</div>
+                              <div className="rounded-lg bg-blue-50 dark:bg-blue-900/50 p-3">
+                                <p className="text-sm text-gray-700 dark:text-gray-300">I understand. Would additional training sessions help your team adapt more quickly?</p>
                               </div>
                             </div>
                           </div>
@@ -262,18 +250,18 @@ export default function HeroHome() {
                         {/* Enhanced Real-time Analysis */}
                         <div 
                           ref={analysisRef}
-                          className={`mt-6 rounded-lg border border-blue-100 bg-blue-50 p-4 transition-all duration-500 ${
+                          className={`mt-6 rounded-lg border border-blue-100 dark:border-blue-900 bg-blue-50 dark:bg-blue-900/50 p-4 transition-all duration-500 ${
                             activeFeature === 'insights'
-                              ? 'relative z-10 ring-4 ring-blue-500/20 ring-offset-4'
+                              ? 'relative z-10 ring-4 ring-blue-500/20 ring-offset-4 dark:ring-offset-gray-800'
                               : ''
                           }`}
                         >
                           {activeFeature === 'insights' && (
-                            <div className="absolute inset-0 -z-10 animate-pulse bg-blue-100/30 rounded-lg"></div>
+                            <div className="absolute inset-0 -z-10 animate-pulse bg-blue-100/30 dark:bg-blue-900/30 rounded-lg"></div>
                           )}
                           <div className="mb-4 flex items-center justify-between">
-                            <h4 className="text-sm font-semibold text-blue-800">Real-time Insight</h4>
-                            <div className="flex items-center text-xs text-blue-600">
+                            <h4 className="text-sm font-semibold text-blue-800 dark:text-blue-200">Real-time Insight</h4>
+                            <div className="flex items-center text-xs text-blue-600 dark:text-blue-400">
                               <svg className="mr-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                               </svg>
@@ -284,38 +272,38 @@ export default function HeroHome() {
                           <div className="space-y-3">
                             <div>
                               <div className="mb-1 flex items-center justify-between">
-                                <span className="text-xs text-gray-600">Tool Adoption</span>
-                                <span className="text-xs font-medium text-blue-600">75%</span>
+                                <span className="text-xs text-gray-600 dark:text-gray-400">Tool Adoption</span>
+                                <span className="text-xs font-medium text-blue-600 dark:text-blue-400">75%</span>
                               </div>
-                              <div className="h-2 overflow-hidden rounded-full bg-blue-200">
-                                <div className="h-full w-3/4 animate-[progress_2s_ease-in-out] bg-blue-600"></div>
+                              <div className="h-2 overflow-hidden rounded-full bg-blue-200 dark:bg-blue-800">
+                                <div className="h-full w-3/4 animate-[progress_2s_ease-in-out] bg-blue-600 dark:bg-blue-400"></div>
                               </div>
                             </div>
                             
                             <div>
                               <div className="mb-1 flex items-center justify-between">
-                                <span className="text-xs text-gray-600">Training Need</span>
-                                <span className="text-xs font-medium text-blue-600">80%</span>
+                                <span className="text-xs text-gray-600 dark:text-gray-400">Training Need</span>
+                                <span className="text-xs font-medium text-blue-600 dark:text-blue-400">80%</span>
                               </div>
-                              <div className="h-2 overflow-hidden rounded-full bg-blue-200">
-                                <div className="h-full w-4/5 animate-[progress_2s_ease-in-out] bg-blue-600"></div>
+                              <div className="h-2 overflow-hidden rounded-full bg-blue-200 dark:bg-blue-800">
+                                <div className="h-full w-4/5 animate-[progress_2s_ease-in-out] bg-blue-600 dark:bg-blue-400"></div>
                               </div>
                             </div>
 
                             <div>
                               <div className="mb-1 flex items-center justify-between">
-                                <span className="text-xs text-gray-600">Sentiment Analysis</span>
-                                <span className="text-xs font-medium text-blue-600">Positive</span>
+                                <span className="text-xs text-gray-600 dark:text-gray-400">Sentiment Analysis</span>
+                                <span className="text-xs font-medium text-blue-600 dark:text-blue-400">Positive</span>
                               </div>
                               <div className="flex space-x-1">
-                                <div className="h-2 w-1/3 rounded-full bg-green-200">
-                                  <div className="h-full w-4/5 animate-[progress_2s_ease-in-out] rounded-full bg-green-500"></div>
+                                <div className="h-2 w-1/3 rounded-full bg-green-200 dark:bg-green-800">
+                                  <div className="h-full w-4/5 animate-[progress_2s_ease-in-out] rounded-full bg-green-500 dark:bg-green-400"></div>
                                 </div>
-                                <div className="h-2 w-1/3 rounded-full bg-yellow-200">
-                                  <div className="h-full w-1/3 animate-[progress_2s_ease-in-out] rounded-full bg-yellow-500"></div>
+                                <div className="h-2 w-1/3 rounded-full bg-yellow-200 dark:bg-yellow-800">
+                                  <div className="h-full w-1/3 animate-[progress_2s_ease-in-out] rounded-full bg-yellow-500 dark:bg-yellow-400"></div>
                                 </div>
-                                <div className="h-2 w-1/3 rounded-full bg-red-200">
-                                  <div className="h-full w-1/5 animate-[progress_2s_ease-in-out] rounded-full bg-red-500"></div>
+                                <div className="h-2 w-1/3 rounded-full bg-red-200 dark:bg-red-800">
+                                  <div className="h-full w-1/5 animate-[progress_2s_ease-in-out] rounded-full bg-red-500 dark:bg-red-400"></div>
                                 </div>
                               </div>
                             </div>
@@ -323,11 +311,11 @@ export default function HeroHome() {
 
                           {/* Key Topics */}
                           <div className="mt-4">
-                            <h5 className="mb-2 text-xs font-medium text-gray-600">Key Topics Identified</h5>
+                            <h5 className="mb-2 text-xs font-medium text-gray-600 dark:text-gray-400">Key Topics Identified</h5>
                             <div className="flex flex-wrap gap-2">
-                              <span className="rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-600">Training</span>
-                              <span className="rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-600">Tool Adoption</span>
-                              <span className="rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-600">Team Coordination</span>
+                              <span className="rounded-full bg-blue-100 dark:bg-blue-900/80 px-2 py-1 text-xs text-blue-600 dark:text-blue-400">Training</span>
+                              <span className="rounded-full bg-blue-100 dark:bg-blue-900/80 px-2 py-1 text-xs text-blue-600 dark:text-blue-400">Tool Adoption</span>
+                              <span className="rounded-full bg-blue-100 dark:bg-blue-900/80 px-2 py-1 text-xs text-blue-600 dark:text-blue-400">Team Coordination</span>
                             </div>
                           </div>
                         </div>
@@ -335,30 +323,30 @@ export default function HeroHome() {
                         {/* AI Recommendations */}
                         <div 
                           ref={recommendationsRef}
-                          className={`rounded-lg border border-green-100 bg-green-50 p-4 transition-all duration-500 ${
+                          className={`rounded-lg border border-green-100 dark:border-green-900 bg-green-50 dark:bg-green-900/30 p-4 transition-all duration-500 ${
                             activeFeature === 'recommendations'
-                              ? 'relative z-10 ring-4 ring-blue-500/20 ring-offset-4'
+                              ? 'relative z-10 ring-4 ring-blue-500/20 ring-offset-4 dark:ring-offset-gray-800'
                               : ''
                           }`}
                         >
                           {activeFeature === 'recommendations' && (
-                            <div className="absolute inset-0 -z-10 animate-pulse bg-blue-50/30 rounded-lg"></div>
+                            <div className="absolute inset-0 -z-10 animate-pulse bg-green-100/30 dark:bg-green-900/30 rounded-lg"></div>
                           )}
-                          <div className="mb-3 flex items-center text-green-800">
+                          <div className="mb-3 flex items-center text-green-800 dark:text-green-300">
                             <svg className="mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                             <h4 className="text-sm font-semibold">AI Recommendations</h4>
                           </div>
-                          <ul className="space-y-2 text-sm text-gray-600">
+                          <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
                             <li className="flex items-center">
-                              <svg className="mr-2 h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <svg className="mr-2 h-4 w-4 text-green-500 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                               </svg>
                               Schedule additional training sessions
                             </li>
                             <li className="flex items-center">
-                              <svg className="mr-2 h-4 w-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <svg className="mr-2 h-4 w-4 text-green-500 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                               </svg>
                               Create quick-reference guides
@@ -376,44 +364,44 @@ export default function HeroHome() {
 
         {/* How It Works - Simple 3-Step Process */}
         <div className="mx-auto mb-20 max-w-5xl">
-          <h2 className="mb-12 text-center text-3xl font-bold">How It Works</h2>
+          <h2 className="mb-12 text-center text-3xl font-bold dark:text-white">How It Works</h2>
           <div className="grid gap-8 md:grid-cols-3">
             <div className="relative">
               <div className="absolute -left-4 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-white">1</div>
-              <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+              <div className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 shadow-sm">
                 <div className="mb-4">
-                  <svg className="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="h-8 w-8 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <h3 className="mb-2 font-semibold">Schedule Check-ins</h3>
-                <p className="text-sm text-gray-600">Set up regular voice check-ins with your team at intervals that work for you.</p>
+                <h3 className="mb-2 font-semibold dark:text-white">Schedule Check-ins</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">Set up regular voice check-ins with your team at intervals that work for you.</p>
               </div>
             </div>
 
             <div className="relative">
               <div className="absolute -left-4 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-white">2</div>
-              <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+              <div className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 shadow-sm">
                 <div className="mb-4">
-                  <svg className="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="h-8 w-8 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
                   </svg>
                 </div>
-                <h3 className="mb-2 font-semibold">AI Conversations</h3>
-                <p className="text-sm text-gray-600">Endly conducts natural voice conversations, adapting to each team member's style.</p>
+                <h3 className="mb-2 font-semibold dark:text-white">AI Conversations</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">Endly conducts natural voice conversations, adapting to each team member's style.</p>
               </div>
             </div>
 
             <div className="relative">
               <div className="absolute -left-4 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-white">3</div>
-              <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+              <div className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 shadow-sm">
                 <div className="mb-4">
-                  <svg className="h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="h-8 w-8 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                   </svg>
                 </div>
-                <h3 className="mb-2 font-semibold">Get Insights</h3>
-                <p className="text-sm text-gray-600">Receive actionable insights and recommendations based on AI-analyzed feedback.</p>
+                <h3 className="mb-2 font-semibold dark:text-white">Get Insights</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">Receive actionable insights and recommendations based on AI-analyzed feedback.</p>
               </div>
             </div>
           </div>
@@ -450,7 +438,7 @@ export default function HeroHome() {
             </div>
             <div className="flex h-12 items-center justify-center grayscale transition hover:grayscale-0">
               <svg className="h-8 w-8 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
               </svg>
             </div>
           </div>
