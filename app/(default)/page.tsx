@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "Home - Simple",
-  description: "Page description",
+  title: "Endly - Your AI Voice Agent for Workplace Feedback",
+  description: "Transform how your company collects and acts on employee feedback with Endly's AI-powered voice conversations. Get deeper insights, foster engagement, and drive meaningful change.",
 };
 
 import Hero from "@/components/hero-home";
